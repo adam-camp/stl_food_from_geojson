@@ -1,47 +1,117 @@
-var map = L.map('mapid').setView([42, -88], 9);
-
-L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 18,
-	ext: 'png'
-}).addTo(map);
-
-var marker = L.marker([42,-88]).addTo(map);
-var marker_Camp = L.marker([41.8555,-88.15]).addTo(map);
-var marker_Bucci = L.marker([42.3,-88.4]).addTo(map);
-
-var circle = L.circle([41.975,-87.91], {
-    color: 'purple',
-    fillColor: '#f03',
-    fillOpacity: 0.75,
-    radius: 5000
-}).addTo(map);
-
-var polygon = L.polygon([
-    [42.509, -88.08],
-    [42.503, -88.06],
-    [42.51, -88.047]
-],
-{color:'green',
-fillColor:"yellow"}).addTo(map);
-
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-marker_Camp.bindPopup("<b>Hello world!</b><br>I am the Camp House.").openPopup();
-marker_Bucci.bindPopup("<b>Hello world!</b><br>I am the Bucci House.").openPopup();
-circle.bindPopup("I am ORD Airport.");
-polygon.bindPopup("I am a polygon.");
-
-/*
-var popup = L.popup()
-    .setLatLng([41.5,-87.75])
-    .setContent("I am a standalone popup.")
-    .openOn(map);
- */
-
-function onMapClick(e) {
-    alert("You clicked the map at " + e.latlng);
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Restaurants": "Chris' Pancakes and Dining",
+        "Cuisine Type": "Best Breakfast",
+        "Address": "5980 Southwest Ave",
+        "City": "St. Louis, MO 63139"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.28939962387085,
+          38.60944288867626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Restaurants": "Thai Table",
+        "Cuisine Type": "Best Thai",
+        "Address": "7403 Manchester Rd",
+        "City": "Maplewood, MO 63143"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.32014846801756,
+          38.61259194753989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Restaurants": "Mai Lee",
+        "Cuisine Type": "Best Vietnamese",
+        "Address": "8396 Musick Memorial Dr",
+        "City": "Brentwood, MO 63144"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.33746480941772,
+          38.62757454386942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Restaurants": "Bogart's Smokehouse",
+        "Cuisine Type": "Best Barbeque",
+        "Address": "1627 S 9th St",
+        "City": "St. Louis, MO 63104"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.20273208618164,
+          38.61089115853795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Restaurants": "La Catrina",
+        "Cuisine Type": "Best Mexican",
+        "Address": "5220 Hampton Ave",
+        "City": "St. Louis, MO 63109"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.29265582561493,
+          38.58471928609339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Restaurants": "Balkan Treat Box",
+        "Cuisine Type": "Best Ethnic/European",
+        "Address": "8103 Big Bend Blvd",
+        "City": "Webster Groves, MO 63119"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.3378564119339,
+          38.59212426312337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Restaurants": "Tree House",
+        "Cuisine Type": "Best Vegan/Vegetarian",
+        "Address": "3177 S Grand Blvd",
+        "City": "St. Louis, MO 63118"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.24294376373291,
+          38.60017830017862
+        ]
+      }
+    }
+  ]
 }
-
-map.on('click', onMapClick);
