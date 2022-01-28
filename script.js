@@ -11,5 +11,15 @@ L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}
 
 // load GeoJSON from an external file
 $.getJSON("https://raw.githubusercontent.com/adam-camp/stl_food_from_geojson/main/places.geojson",function(data){
-L.geoJson(data).addTo(map);
+var restIcon = L.icon({
+      iconUrl: 'https://www.clipartmax.com/png/middle/27-277542_image-cartoon-pictures-of-restaurants.png',
+      iconSize: [45,35]
+    });  
+L.geoJson(data,{
+      pointToLayer: function(feature,latlng){
+        var marker = L.marker(latlng,{icon: restIcon});
+        marker.bindPopup(feature.properties.Restaurants + '<br/>' +'<br/>' + feature.properties.Address + '<br/>' + feature.properties.City);
+        return marker;  
+}
+}).addTo(map);
 });
